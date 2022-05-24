@@ -29,5 +29,8 @@
   "bugs": {
     "url": "https://nazar.com",
     "email": "nazzzarr@gmail.com"
+  },
+  "dependencies": {
+    "axios": "^0.21.4"
   }
 }
