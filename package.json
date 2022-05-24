@@ -1,0 +1,33 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "CLI for getting weather",
+  "main": "index.js",
+  "bin": "./index.js",
+  "os": [
+    "linux",
+    "win32"
+  ],
+  "engines": {
+    "node": ">14"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "weather",
+    "cli"
+  ],
+  "author": "Nazar Dr",
+  "license": "ISC",
+  "homepage": "https://nazar.com",
+  "repository": {
+    "type": "git",
+    "url": "https://nazar.com"
+  },
+  "bugs": {
+    "url": "https://nazar.com",
+    "email": "nazzzarr@gmail.com"
+  }
+}
