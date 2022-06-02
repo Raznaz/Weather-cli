@@ -1,26 +1,33 @@
 import https from 'https';
-import { printError } from './log.service';
-import { getKeyValue, TOKEN_DICTIONARY } from './storage.service';
+import { getKeyValue, TOKEN_DICTIONARY } from './storage.service.js';
 
-const getWeather = async (city) => {
+export const getWeather = async (city) => {
+  console.log('🚀 ~ city', city);
+
   const token = await getKeyValue(TOKEN_DICTIONARY.token);
-  if (!token) {
-    throw new Error('No have key api, put key -t [API_KEY]');
-  }
-  //   const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${key}`;
+  console.log('🧟 ~ token', token);
 
-  const url = new URL('https://api.openweathermap.org/geo/1.0/direct');
+  if (!token) {
+    throw new Error('Have problem with token');
+  }
+
+  const url = new URL(`https://api.openweathermap.org/data/2.5/weather`);
+
   url.searchParams.append('q', city);
   url.searchParams.append('appid', token);
-  url.searchParams.append('lang', eng);
-  url.searchParams.append('units', 'metric');
-  https.get(url, (response) => {
+
+  https.get(url, (result) => {
     let res = '';
-    response.on('data', (chunk) => {
+
+    result.on('data', (chunk) => {
       res += chunk;
     });
-    response.on('end', () => {
+    result.on('end', () => {
+      console.log('END');
       console.log(res);
+    });
+    result.on('error', (error) => {
+      console.log(error.message);
     });
   });
 };

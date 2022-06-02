@@ -1,7 +1,8 @@
 #!/user/bin/env node
 
 import { getArgs } from './helpers/args.js';
-import { printHelp, printSuccess, printError } from './services/log.service.js';
+import { getWeather } from './services/api.service.js';
+import { printError, printHelp, printSuccess } from './services/log.service.js';
 import { saveKeyValue, TOKEN_DICTIONARY } from './services/storage.service.js';
 
 const saveToken = async (token) => {
@@ -31,7 +32,7 @@ const initCLI = () => {
     return saveToken(args.t);
   }
 
-  // Show weather
+  getWeather('Kharkiv');
 };
 
 initCLI();
