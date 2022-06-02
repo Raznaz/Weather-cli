@@ -6,7 +6,7 @@ const printError = (error) => {
 };
 
 const printSuccess = (message) => {
-  console.log(chalk.bgGreenBright(' SUCCESS ', ' ', message));
+  console.log(chalk.bgGreen.black.bold(' SUCCESS ', ' ', message));
 };
 
 const printHelp = () => {
